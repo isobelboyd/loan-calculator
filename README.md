@@ -1,1 +1,1 @@
-# loan-calculator
+# loan_calculator
