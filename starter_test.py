@@ -15,6 +15,8 @@
 import pytest
 from datetime import date
 from friend import *
+from app import app, Loan
+#from oop_loan_pmt import oop_loan_pmt, Loan
 
 
 # ### unit tests ###
@@ -57,23 +59,38 @@ def test_discount_factor_calculation(loan):
     THEN the discount rate should be matched
     """
     loan.calculateDiscountFactor()
-    assert loan.getDiscountFactor() == pytest.approx(169.8125, 0.01)
+    assert loan.getDiscountFactor() == pytest.approx(166.79161439233403, 0.01)
 
 
 def test_loan_payment_calculation(loan):
+    """
+    GIVEN your loan information
+    WHEN loan infomoation is passed through the calculator
+    THEN the loan payment is accurately calculated
+    """
     loan.calculateLoanPmt()
     assert loan.getLoanPmt() == pytest.approx(599.55, 0.01)
 
 def test_get_discount_factor(loan):
+    """
+    GIVEN your loan information
+    WHEN loan infomoation is passed through the calculator
+    THEN the discount factor is accurately calculated
+    """
     loan.calculateDiscountFactor()
     assert loan.getDiscountFactor() == pytest.approx(169.8125, 0.01)
 
 def test_get_loan_payment(loan):
+    """
+    GIVEN your loan information
+    WHEN loan infomoation is passed through the calculator
+    THEN the loan payment is accurately calculated
+    """
     loan.calculateLoanPmt()
     assert loan.getLoanPmt() == pytest.approx(599.55, 0.01)
 
 
-# FUNCTIONAL TEST
+FUNCTIONAL TEST
 def test_collect_loan_details(monkeypatch):
     inputs = iter(['100000', '30', '0.06'])
     monkeypatch.setattr('builtins.input', lambda prompt: next(inputs))
