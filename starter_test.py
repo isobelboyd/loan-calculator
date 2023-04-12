@@ -91,6 +91,11 @@ def test_get_loan_payment(loan):
 
 # #FUNCTIONAL TEST
 def test_collect_loan_details(monkeypatch):
+    """
+    GIVEN your loan information
+    WHEN loan infomoation is passed through the calculator
+    THEN the loan payment is accurately calculated
+    """
     inputs = iter(['100000', '30', '0.06'])
     monkeypatch.setattr('builtins.input', lambda prompt: next(inputs))
     loan = collectLoanDetails()
@@ -99,6 +104,11 @@ def test_collect_loan_details(monkeypatch):
     assert loan.annualRate == 0.06
 
 def test_collect_loan_details_with_invalid_input(monkeypatch, capsys):
+    """
+    GIVEN your loan information
+    WHEN loan infomoation is passed through the calculator
+    THEN the loan payment is accurately calculated
+    """
     inputs = iter(['abc', '30', '0.06', '100000', '30', '0.06'])
     monkeypatch.setattr('builtins.input', lambda prompt: next(inputs))
     loan = collectLoanDetails()
