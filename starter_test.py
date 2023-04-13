@@ -16,6 +16,8 @@ import pytest
 from datetime import date
 from friend import *
 from app import app, Loan
+import io
+import sys
 #from oop_loan_pmt import oop_loan_pmt, Loan
 
 
@@ -138,3 +140,13 @@ def test_calculate_loan_pmt_with_zero_loan_amount():
     print("\r")
     print(" -- calculateLoanPmt with zero loan amount functional test")
     assert loan.getLoanPmt() == 0
+
+
+# # integration test
+# def test_loan_calculation(capsys):
+#     sys.stdin = io.StringIO('100000\n30\n0.06\n')
+#     captured = capsys.readouterr()
+#     assert 'What is the loan amount?' in captured.out
+#     assert 'How many years is the loan?' in captured.out
+#     assert 'What is the annual interest rate for the loan - entered as a decimal?' in captured.out
+#     assert 'Your monthly payment is: $599.55' in captured.out
