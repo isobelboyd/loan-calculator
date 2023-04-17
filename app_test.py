@@ -14,7 +14,6 @@
 
 import pytest
 from datetime import date
-from friend import *
 from app import app, Loan
 import io
 import sys
